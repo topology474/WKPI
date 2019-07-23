@@ -2,9 +2,9 @@
 WKPI: A kernel based on persistent homology
 
 
-WKPI kernel is constructed from persistence images. Given two persistence images PI and PI', the WKPI between them is wkpi(PI, PI') = \sum_s w(s)k(PI(s), PI'(s)), where s is the persistence images cell, w(s) is the weight function on s, and k(., .) is a kernel between two cells.
+WKPI kernel is constructed from persistence images. Given two persistence images PI and PI', the WKPI between them is wkpi(PI, PI') = \sum_s w(s)k(PI(s), PI'(s)), where s is the persistence images cell, w(s) is the weight function on s, and k(., .) is a kernel between two cells. In order to computing the weight function w(s), a cost function and metric learning scheme is developed. Details are in Learning metric for persistence-based summaries and graph classification.
 
-In order to computing the weight function w(s), a cost function and metric learning scheme is developed. Details are in Learning metric for persistence-based summaries and graph classification.
+--------------------------------------
 
 __init__.py, metricLearner.py and WKPI.py provides an example of WKPI SVM classifier. In this example, the weight function is set as a mixture Gaussian function, and the kernel between two persistence images cells is set as Gaussian kernel.
 
@@ -23,6 +23,8 @@ or
 
 >python __init__.py --pdpath <persistence_diagram_file_path> --pipath <persistence_image_file_path> --framework <joint/separate>
 
+------------------------------------------------------------
+
 About augments:
 
 There are 4 types of files.
@@ -35,7 +37,9 @@ The third is file recording the x-y coordinates of persistence image cells. In o
 
 The fourth is the file recording the class labels of each object. In our provided data examples, it is in the same folder with persistence images.
 
-The centers in mixture Gaussian functions can be initialized by kmeans. Persistence points in training dataset will be collected in advance, then the clustering centers of kmeans result should be set as the initialized centers.
+The centers in mixture Gaussian functions are initialized by kmeans. Persistence points in training dataset will be collected in advance, then the clustering centers of kmeans result should be set as the initialized centers.
+
+---------------------------------------------------
 
 There are two hyperparameters: the number of mixtures in weight function (denoted as k) and "\sigma" in Gaussian kernel between persistence images cells. Two frameworks are provided to choose hyperparameters for WKPI-SVM. 
 
@@ -65,6 +69,9 @@ There are two hyperparameters: the number of mixtures in weight function (denote
 
 In our example, we set K and L as 10 and 10.
 
+
+
+
 "separate" is a K fold cross validation, the procedure is as follows:
 
 1. Split the dataset into K folds at random.
@@ -83,15 +90,23 @@ In our example, we set K and L as 10 and 10.
 
 In our example, we set K as 10.
 
+
+
 The main difference between two frameworks: 
 
 The criterion for selecting hyperparameters in "joint" is the performance on classifying validation set, which means learning metrics and training classifier jointly. That in "seperate" is the cost function value on training set, which means metrics learning and classifier training are seperate.
+
+------------------------------------------------
+
 
 There are some other choices you can make in this example.
 
 First, you can use the entire training set to learn metrics or just a subset of training set. See "batch" and "batch_size" in metricLearner.learnMetric.
 
 Second, you can choose methods to compute the gradients in metric learning process. See "method" in metricLearner. learnMetric.
+
+-----------------------------------------------
+
 
 About data examples:
 

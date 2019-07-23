@@ -29,11 +29,9 @@ The second is files recording persistence images generated from persistence diag
 The third is file recording the x-y coordinates of persistence image cells. In our provided data examples, it is in the same folder with persistence images.
 The fourth is the file recording the class labels of each object. In our provided data examples, it is in the same folder with persistence images.
 
-The centers in mixture Gaussian functions can be initialized by kmeans. Persistence points in training dataset will be collected in advance,
-then the clustering centers of kmeans result should be set as the initialized centers.
+The centers in mixture Gaussian functions can be initialized by kmeans. Persistence points in training dataset will be collected in advance, then the clustering centers of kmeans result should be set as the initialized centers.
 
-There are two hyperparameters: the number of mixtures in weight function (denoted as k) and "\sigma" in Gaussian kernel between persistence images cells. 
-Two frameworks are provided to choose hyperparameters for WKPI-SVM. 
+There are two hyperparameters: the number of mixtures in weight function (denoted as k) and "\sigma" in Gaussian kernel between persistence images cells. Two frameworks are provided to choose hyperparameters for WKPI-SVM. 
 
 "joint" is a K * L fold nested cross validation, the procedure is as follows:
 1. Split the dataset into K folds at random.
@@ -60,9 +58,7 @@ In our example, we set K and L as 10 and 10.
 In our example, we set K as 10.
 
 The main difference between two frameworks: 
-The criterion for selecting hyperparameters in "joint" is the performance on classifying validation set, which means learning metrics and training
-classifier jointly.
-That in "seperate" is the cost function value on training set, which means metrics learning and classifier training are seperate.
+The criterion for selecting hyperparameters in "joint" is the performance on classifying validation set, which means learning metrics and training classifier jointly. That in "seperate" is the cost function value on training set, which means metrics learning and classifier training are seperate.
 
 There are some other choices you can make in this example.
 First, you can use the entire training set to learn metrics or just a subset of training set. See "batch" and "batch_size" in metricLearner.learnMetric.
@@ -73,5 +69,4 @@ We provide two data sets: MUTAG and PROTEIN, which are popular benchmarks in gra
 ./mutagPD/ and ./proteinPD/ are persistence diagrams files.
 ./mutagPI/ and ./proteinPI/ are persistence images files. As we said above, the coordinates and label files are included as well. 
 The filtrations in generating persistence points is Ricci curvature. Both 0-dimsional and 1-dimensional persistence points are included.
-Note that in our provided persistence points, the death might be lower than birth, which is different from some persistent homology settings.
-The reason is we use both sub-level subset and super-level subset.
+Note that in our provided persistence points, the death might be lower than birth, which is different from some persistent homology settings. The reason is we use both sub-level subset and super-level subset.

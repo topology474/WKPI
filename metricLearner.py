@@ -51,7 +51,7 @@ class metricLearner:
 		newCost = 0
 		flag = 0
 		for iter in range(max_iter):
-			if(batch) and (batch_size < self.pimage.shape[0]):
+			if(batch):
 				batch_index = random.sample(range(self.pimage.shape[0]), batch_size)
 				batch_pimage = self.pimage[batch_index]
 				batch_label = self.labels[batch_index]

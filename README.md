@@ -16,7 +16,9 @@ There are 3 input augments.
 "-f" or "--framework" for choosing different training and test framework. Please input joint or separate.
 You can run our provided data examples by:
 >python __init__.py -d <persistence_diagram_file_path> -i <persistence_image_file_path> -f <joint or seperate>
+	
 or 
+
 >python __init__.py --pdpath <persistence_diagram_file_path> --pipath <persistence_image_file_path> --framework <joint or seperate>
  
 

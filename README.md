@@ -1,7 +1,7 @@
 # WKPI
 WKPI: A kernel based on persistent homology
 
-Implementation for paper: Learning Metrics for Persistence-based Summaries and Applications for Graph Classification
+Implementation for paper: Learning Metrics for Persistence-based Summaries and Applications for Graph Classification. Qi Zhao, and Yusu Wang.
 
 
 WKPI kernel is constructed from persistence images. Given two persistence images PI and PI', the WKPI between them is wkpi(PI, PI') = \sum_s w(s)k(PI(s), PI'(s)), where s is the persistence images cell, w(s) is the weight function on s, and k(., .) is a kernel between two cells. In order to computing the weight function w(s), a cost function and metric learning scheme is developed. Details are in Learning metric for persistence-based summaries and graph classification.
